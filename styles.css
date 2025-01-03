@@ -1,0 +1,262 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: -10px;
+  padding-right: 30px;
+  color: red;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+#message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+input {
+  width: 300px;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.registration-container, .login-container {
+  width: 320px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+}
+
+.dashboard-container {
+  padding: 40px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+header .username {
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+header .logout-btn {
+  background-color: #f44336;
+  padding: 10px 20px;
+}
+
+header .logout-btn:hover {
+  background-color: #e53935;
+}
+
+.main-content {
+  margin-top: 30px;
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.task {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task h3 {
+  font-size: 20px;
+}
+
+.task p {
+  font-size: 14px;
+  color: #777;
+}
+
+img {
+  height: 200px;
+  width: 250px;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-left: 25px;
+}
+
+/* Test Bo'limi (task-details) */
+.task-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+button#check-answer-btn, button#check-answer-btn-2, button#check-answer-btn-3, button#check-answer-btn-4, button#check-answer-btn-5, button#check-answer-btn-6 {
+  background-color: #007bff;
+  margin-top: 10px;
+}
+
+button#check-answer-btn:hover, button#check-answer-btn-2:hover, button#check-answer-btn-3:hover,button#check-answer-btn-4:hover,button#check-answer-btn-5:hover,button#check-answer-btn-6:hover {
+  background-color: #0056b3;
+}
+
+#test1-result, #test2-result, #test3-result,#test4-result,#test5-result,#test6-result {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#test1-result.accepted, #test2-result.accepted, #test3-result.accepted, #test4-result.accepted,  #test5-result.accepted,  #test6-result.accepted {
+  color: green;
+}
+
+#test1-result.wrong, #test2-result.wrong, #test3-result.wrong,#test4-result.wrong,#test5-result.wrong,#test6-result.wrong {
+  color: red;
+}
+
+/* Responsiv dizayn */
+@media (max-width: 768px) {
+  .task-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .registration-container, .login-container {
+    width: 280px;
+  }
+
+  .dashboard-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-list {
+    grid-template-columns: 1fr;
+  }
+
+  .registration-container, .login-container {
+    width: 100%;
+    margin: 20px;
+  }
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  width: 30px;
+}
+
+.hamburger .bar {
+  height: 4px;
+  width: 100%;
+  background-color: white;
+}
+
+.sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding-top: 60px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 20px;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar ul li:hover {
+  background-color: #555;
+}
+
+.sidebar.show {
+  display: block;
+}
+@media (max-width: 3000px) {
+  .hamburger {
+      display: flex;
+  }
+
+  header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}

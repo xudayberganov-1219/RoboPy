@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robopy - Ro'yhatdan o'tish, Login, Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ro'yhatdan o'tish bo'limi -->
+  <div class="registration-container" id="registration-container">
+    <img src="./robopy.webp" alt="robopy">
+    <h2>Robopy Ro'yhatdan O'tish</h2>
+    <form id="registration-form">
+      <div class="form-group">
+        <label for="username">Foydalanuvchi nomi</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Parol</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Parolni tasdiqlash</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+      <button type="submit">Ro'yhatdan o'tish</button>
+    </form>
+    <p id="message"></p>
+  </div>
+
+  <!-- Login bo'limi -->
+  <div class="login-container" id="login-container" style="display:none;">
+    <form id="login-form">
+      <div class="img">
+        <h2>Robopy Login</h2>
+        <img src="./robopy.webp" alt="robopy" class="robo_img">
+      </div>    
+      <input type="text" id="login-username" name="username" placeholder="Foydalanuvchi nomi" required>
+      <input type="password" id="login-password" name="password" placeholder="Parol" required>
+      <button type="submit">Kirish</button>
+      <p id="login-message"></p>
+    </form>
+  </div>
+
+  <!-- Dashboard bo'limi -->
+  <div class="dashboard-container" id="dashboard-container" style="display:none;">
+    <header>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <h1>Robopy bilan dasturlash mahoratingizni sinovdan o'tkazing!</h1>
+      <div class="user-info">
+        <span class="username" id="user-name">Salom, Foydalanuvchi!</span>
+        <button class="logout-btn" onclick="logout()">Chiqish</button>
+      </div>
+      <div id="hamburger-menu" class="sidebar">
+        <ul>
+          <li><a href="!#">Foydalanuvchi</a></li>
+          <li><a href="!#">Bosh sahifa</a></li>
+          <li><a href="#main-content">Masalalar</a></li>
+          <li><a href="!#">Olimpiadalar</a></li>
+          <li><a href="!#">Tizimda ishlash</a></li>
+          <li><a href="!#">Blog</a></li><br><br>
+          <li><a href="!#">Ro'yhatdan o'tish</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="main-content" id="main-content">
+      <h2>Masalalar</h2>
+      <div class="task-list">
+        <!-- Test 1 -->
+        <div class="task">
+          <h3>Masala 1</h3>
+          <p>Python dasturlash tilida yeching. A va B o'zgaruvchilar beriladi. <br> Siz ularning yig'indisini hisoblovchi dastur tuzing</p>
+          <button class="start-btn" onclick="startTest(1)">Boshlash</button>
+        </div>
+        <!-- Test 2 -->
+        <div class="task">
+          <h3>Masala 2</h3>
+          <p>Python dasturlash tilida yeching. A va B o'zgaruvchilar beriladi. <br> Siz ularning ko'paytmasini hisoblovchi dastur tuzing</p>
+          <button class="start-btn" onclick="startTest(2)">Boshlash</button>
+        </div>
+        <!-- Test 3 -->
+        <div class="task">
+          <h3>Masala 3</h3>
+          <p>Python dasturlash tilida yeching. A va B o'zgaruvchilar beriladi. <br> Siz A o'zgaruvchini B o'zgaruvchiga bo'lgandagi qoldig'ini hisoblovchi dastur tuzing</p>
+          <button class="start-btn" onclick="startTest(3)">Boshlash</button>
+        </div>
+        <!-- Test 4 -->
+        <div class="task">
+          <h3>Masala 4</h3>
+          <p>Python dasturlash tilida yeching. A va B o'zgaruvchilar beriladi. <br> Siz A o'zgaruvchining B-darajasini hisoblovchi dastur tuzing</p>
+          <button class="start-btn" onclick="startTest(4)">Boshlash</button>
+        </div>
+         <!-- Test 5 -->
+        <div class="task">
+          <h3>Masala 5</h3>
+          <p>Python dasturlash tilida yeching. A va B o'zgaruvchilar beriladi. <br> Siz A o'zgaruvchini B ga bo'lgandagi butun qismini hisoblovchi dastur tuzing</p>
+          <button class="start-btn" onclick="startTest(5)">Boshlash</button>
+        </div>
+        <!-- Test 6 -->
+        <div class="task">
+          <h3>Masala 6</h3>
+          <p>Python dasturlash tilida yeching. A va B o'zgaruvchilar beriladi. <br> Siz A o'zgaruvchini B ga bo'lib natijani hisoblovchi dastur tuzing</p>
+          <button class="start-btn" onclick="startTest(6)">Boshlash</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Test 1 Bo'limi (Testni boshlash uchun) -->
+  <div class="task-details" id="test1-details" style="display:none;">
+    <h2>Masala 1: A va B ning yig'indisini hisoblash</h2>
+    <textarea id="user-answer" rows="10" cols="30" placeholder="Python dasturini shu yerga yozing..."></textarea><br>
+    <button id="check-answer-btn">Tekshirish</button>
+    <p id="test1-result"></p>
+  </div>
+
+  <!-- Test 2 Bo'limi -->
+  <div class="task-details" id="test2-details" style="display:none;">
+    <h2>Masala 2: A va B ning ko'paytmasini hisoblash</h2>
+    <textarea id="user-answer-2" rows="10" cols="30" placeholder="Python dasturini shu yerga yozing..."></textarea><br>
+    <button id="check-answer-btn-2">Tekshirish</button>
+    <p id="test2-result"></p>
+  </div>
+
+  <!-- Test 3 Bo'limi -->
+  <div class="task-details" id="test3-details" style="display:none;">
+    <h2>Masala 3: A va B ning bo'linishi qoldig'ini hisoblash</h2>
+    <textarea id="user-answer-3" rows="10" cols="30" placeholder="Python dasturini shu yerga yozing..."></textarea><br>
+    <button id="check-answer-btn-3">Tekshirish</button>
+    <p id="test3-result"></p>
+  </div>
+   <!-- Test 4 Bo'limi -->
+  <div class="task-details" id="test4-details" style="display:none;">
+    <h2>Masala 4: A ning B-darajasini hisoblash</h2>
+    <textarea id="user-answer-4" rows="10" cols="30" placeholder="Python dasturini shu yerga yozing..."></textarea><br>
+    <button id="check-answer-btn-4">Tekshirish</button>
+    <p id="test4-result"></p>
+  </div>
+   <!-- Test 5 Bo'limi -->
+  <div class="task-details" id="test5-details" style="display:none;">
+    <h2>Masala 5: A ni B ga bo'lgandagi butun qismini hisoblash</h2>
+    <textarea id="user-answer-5" rows="10" cols="30" placeholder="Python dasturini shu yerga yozing..."></textarea><br>
+    <button id="check-answer-btn-5">Tekshirish</button>
+    <p id="test5-result"></p>
+  </div>
+   <!-- Test 6 Bo'limi -->
+   <div class="task-details" id="test6-details" style="display:none;">
+    <h2>Masala 6: A ni B ga bo'lishni hisoblash</h2>
+    <textarea id="user-answer-6" rows="10" cols="30" placeholder="Python dasturini shu yerga yozing..."></textarea><br>
+    <button id="check-answer-btn-6">Tekshirish</button>
+    <p id="test6-result"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
